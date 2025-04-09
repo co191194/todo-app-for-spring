@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+<head th:replace="~{common :: head(title='ToDo')}"></head>
 <body>
 	<h1>Todo List</h1>
 	<form action="#" th:action="@{/todo/insert}" method="post">
