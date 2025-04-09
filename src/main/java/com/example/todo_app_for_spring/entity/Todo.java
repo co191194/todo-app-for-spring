@@ -11,7 +11,7 @@ import jakarta.persistence.Version;
 import lombok.Data;
 
 @Data
-@Entity(name = "t_todo")
+@Entity(name = "todo")
 public class Todo {
 
 	@Id

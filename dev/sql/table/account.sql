@@ -1,9 +1,9 @@
 -- ユーザマスタの作成
-DROP TABLE IF EXISTS m_user
+DROP TABLE IF EXISTS account
 ;
 
-CREATE TABLE m_user (
-    user_id VARCHAR(20) CONSTRAINT pkey_m_user PRIMARY KEY,
+CREATE TABLE account (
+    user_id VARCHAR(20) CONSTRAINT pkey_account PRIMARY KEY,
     user_pw VARCHAR(100) NOT NULL,
     user_name VARCHAR(30),
     is_locked BOOLEAN NOT NULL DEFAULT (FALSE),

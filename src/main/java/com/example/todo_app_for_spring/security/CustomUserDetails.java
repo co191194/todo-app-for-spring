@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.example.todo_app_for_spring.entity.User;
+import com.example.todo_app_for_spring.entity.Account;
 
 import lombok.Data;
 
@@ -17,7 +17,7 @@ public class CustomUserDetails implements UserDetails {
 
 	private static final long serialVersionUID = -2040529305275897507L;
 
-	private final User user;
+	private final Account user;
 	private static final List<GrantedAuthority> ROLE_USER = Collections
 			.unmodifiableList(AuthorityUtils.createAuthorityList("ROLE_USER"));
 

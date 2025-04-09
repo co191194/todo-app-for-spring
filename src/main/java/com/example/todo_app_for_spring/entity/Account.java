@@ -10,8 +10,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name = "m_user")
-public class User {
+@Entity(name = "account")
+public class Account {
 
 	@Id
 	private String userId;
