@@ -8,6 +8,8 @@ services:
       POSTGRES_PASSWORD: postgres@todo
       POSTGRES_DB: todo
     volumes:
-      - ./dev/data:/var/lib/postgresql/data
-
+      - todo-data:/var/lib/postgresql/data
+      - ./dev/sql/init:/docker-entrypoint-initdb.d
+volumes:
+  todo-data:
 
