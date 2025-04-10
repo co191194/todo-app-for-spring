@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{common :: head(title='ToDo')}"></head>
+<head>
+<link th:href="@{/css/todo.css}" rel="stylesheet">
+</head>
 <body>
-	<h1>Todo List</h1>
-	<form action="#" th:action="@{/todo/insert}" method="post">
-		<input type="date" name="todoDate" placeholder="日付を入力(任意)"> <input
-			type="text" name="todoTitle" placeholder="タイトルを入力(必須)" required>
-		<input type="text" name="todoContent" placeholder="内容を入力(任意)">
-		<button type="submit">Add</button>
-	</form>
-	<table>
-		<tr>
-			<th>日付</th>
-			<th>タイトル</th>
-			<th>内容</th>
-			<th>削除</th>
-		</tr>
-		<tr th:each="todo : ${todoList}">
-			<td th:text="${todo.todoDate}"></td>
-			<td th:text="${todo.todoTitle}"></td>
-			<td th:text="${todo.todoContent}"></td>
-			<td><a th:href="@{/todo/delete/{id}(id=${todo.todoId})}">削除</a></td>
-		</tr>
-	</table>
+	<header th:replace="~{common :: header}"></header>
+	<div class="container">
+		<form action="#" th:action="@{/todo/insert}" method="post"
+			class="d-flex gap-3 align-items-end pb-3 mb-3">
+			<div>
+				<label for="todoDate" class="form-label">日付</label>
+				<input type="date" class="form-control" id="todoDate"
+					name="todoDate" placeholder="日付を入力(任意)">
+			</div>
+			<div>
+				<label for="todoTitle" class="form-label">タイトル</label>
+				<input type="text" class="form-control" id="todoTitle"
+					name="todoTitle" placeholder="タイトルを入力(必須)" required>
+			</div>
+			<div>
+				<label for="todoContent" class="form-label">内容</label>
+				<input type="text" class="form-control" id="todoContent"
+					name="todoContent" placeholder="内容を入力(任意)">
+			</div>
+			<div>
+				<button type="submit" class="btn btn-primary pe-4">
+					<i class="bi bi-plus me-1"></i>追加
+				</button>
+			</div>
+		</form>
+		<div class="table-responsive todo-table-height">
+			<table class="table todo-table table-striped table-bordered fs-5">
+				<thead class="text-center position-sticky top-0">
+					<tr>
+						<th scope="col" class="table-col-date">日付</th>
+						<th scope="col" class="table-col-title">タイトル</th>
+						<th scope="col" class="table-col-content">内容</th>
+						<th scope="col" class="table-col-btn">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="todo : ${todoList}">
+						<td class="text-center" th:text="${todo.todoDate}"></td>
+						<td th:text="${todo.todoTitle}"></td>
+						<td th:text="${todo.todoContent}"></td>
+						<td>
+						<a th:href="@{/todo/update/{id}(id=${todo.todoId})}"><i
+                                class="bi bi-pencil-square"></i></a>
+						<a th:href="@{/todo/delete/{id}(id=${todo.todoId})}"><i
+								class="bi bi-eraser-fill"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
