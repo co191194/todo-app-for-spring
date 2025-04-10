@@ -12,18 +12,18 @@
     }
 	
 	.table-col-date {
-		width:120px;
+		width: 120px;
 	}
 	
 	.table-col-title {
-        width:300px;
+        width: 300px;
     }
     
     .table-col-content {
-        width:400px;
+        width: 500px;
     }
     
     .table-col-btn {
-        width:50px;
+        width: 80px;
     }
 }

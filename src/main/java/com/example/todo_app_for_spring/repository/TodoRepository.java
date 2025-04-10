@@ -2,6 +2,7 @@ package com.example.todo_app_for_spring.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.todo_app_for_spring.entity.Todo;
@@ -14,5 +15,5 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
 	 * @param userId
 	 * @return
 	 */
-	List<Todo> findByUserId(String userId);
+	List<Todo> findByUserId(String userId, Sort sort);
 }

@@ -1,8 +1,8 @@
 package com.example.todo_app_for_spring.service;
 
-import java.time.LocalDate;
 import java.util.List;
 
+import com.example.todo_app_for_spring.dto.TodoDto;
 import com.example.todo_app_for_spring.entity.Todo;
 
 /**
@@ -16,7 +16,7 @@ public interface TodoService {
 	 * @param userId
 	 * @return
 	 */
-	public List<Todo> getToDoList(String userId);
+	public List<Todo> getToDoList();
 
 	/**
 	 * ToDo情報を登録する
@@ -26,7 +26,7 @@ public interface TodoService {
 	 * @param todoTitle
 	 * @param todoContent
 	 */
-	public void insertToDo(String userId, LocalDate todoDate, String todoTitle, String todoContent);
+	public void insertToDo(TodoDto todoDto);
 
 	/**
 	 * ToDo情報を削除する
@@ -34,4 +34,13 @@ public interface TodoService {
 	 * @param todoId
 	 */
 	public void deleteToDo(Long todoId);
+	
+	/**
+	 * ToDo情報を更新する
+	 * 
+	 * @param todoId
+	 * @param todoTitle
+	 * @param todoContent
+	 */
+	public void updateToDo(TodoDto todoDto);
 }
