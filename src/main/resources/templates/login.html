@@ -2,16 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{common :: head(title='Login')}"></head>
 <body>
-	<h1>Login</h1>
-	<form action="#" th:action="@{/login}" method="post">
-		<label for="userId">ID:</label> <input type="text" id="username"
-			name="username" required> <br> <label for="userPw">PW:</label>
-		<input type="password" id="password" name="password" required>
-		<br>
-		<button type="submit">Login</button>
-	</form>
+	<header th:replace="~{common :: header}"></header>
+	<div class="container position-relative">
+		<div class="position-absolute top-0 start-50 translate-middle-x mt-5 w-100 row justify-content-center">
+			<div class="card p-3 col-4 row">
+				<h3 class="card-title col-12">ログイン</h3>
+				<div class="card-body">
+					<div class="text-center text-danger">
+						<p th:if="${param.logout}">ログアウトしました。</p>
+						<p th:if="${param.error}">ログインに失敗しました。</p>
+					</div>
+					<form action="#" th:action="@{/login}" method="post"
+						class="d-flex flex-column justify-content-center align-items-center gap-3">
+						<div class="col-12 row justify-content-center align-items-center">
+							<label for="userId" class="col-3">ユーザID</label>
+							<input type="text" id="username" name="username" class="col-9"
+								required>
+						</div>
+						<div class="col-12 row justify-content-centeralign-items-center">
+							<label for="userPw" class="col-3">パスワード</label>
+							<input type="password" id="password" name="password"
+								class="col-9" required>
+						</div>
+						<div class="col-12 row justify-content-center align-items-center">
+							<button type="submit" class="col-auto btn btn-primary">Login</button>
+						</div>
+					</form>
 
-	<p th:if="${param.logout}">ログアウトしました。</p>
-	<p th:if="${param.error}">ログインに失敗しました。</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
