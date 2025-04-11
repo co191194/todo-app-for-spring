@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.todo_app_for_spring.dto.TodoDto;
 import com.example.todo_app_for_spring.form.TodoForm;
 import com.example.todo_app_for_spring.service.TodoService;
+import com.example.todo_app_for_spring.utility.LoginUserUtility;
 
 import lombok.RequiredArgsConstructor;
 
@@ -48,6 +49,7 @@ public class TodoController {
 		List<TodoForm> todoList = modelMapper.map(todoService.getToDoList(), new TypeToken<List<TodoForm>>() {
 		}.getType());
 		model.addAttribute("todoList", todoList);
+		model.addAttribute("userName", LoginUserUtility.getLoginUserName());
 		return "todo";
 	}
 

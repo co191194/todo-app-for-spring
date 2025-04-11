@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{common :: head(title='Login')}"></head>
 <body>
-	<header th:replace="~{common :: header}"></header>
+	<header th:replace="~{common :: header(isLoggedIn=false, userName='')}"></header>
 	<div class="container position-relative">
 		<div
 			class="position-absolute top-0 start-50 translate-middle-x mt-5 w-100 row justify-content-center">

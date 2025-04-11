@@ -5,7 +5,7 @@
 <link th:href="@{/css/todo.css}" rel="stylesheet">
 </head>
 <body>
-	<header th:replace="~{common :: header}"></header>
+	<header th:replace="~{common :: header(isLoggedIn=true, userName=${userName})}"></header>
 	<div class="container">
 		<form action="#" th:action="@{/todo/insert}" method="post"
 			class="d-flex gap-3 align-items-end pb-3 mb-3">

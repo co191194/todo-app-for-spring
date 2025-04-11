@@ -24,4 +24,22 @@ public class LoginUserUtility {
 		}
 		return null;
 	}
+
+	/**
+	 * ログインユーザの名前を取得します。
+	 * 
+	 * @return
+	 */
+	public static String getLoginUserName() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication != null && authentication.isAuthenticated()) {
+			Object principal = authentication.getPrincipal();
+			if (principal instanceof CustomUserDetails userDetails) {
+				return userDetails.getUser().getUserName();
+			} else {
+				return principal.toString();
+			}
+		}
+		return null;
+	}
 }
