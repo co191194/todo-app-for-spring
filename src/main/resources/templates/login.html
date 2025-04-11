@@ -4,7 +4,8 @@
 <body>
 	<header th:replace="~{common :: header}"></header>
 	<div class="container position-relative">
-		<div class="position-absolute top-0 start-50 translate-middle-x mt-5 w-100 row justify-content-center">
+		<div
+			class="position-absolute top-0 start-50 translate-middle-x mt-5 w-100 row justify-content-center">
 			<div class="card p-3 col-4 row">
 				<h3 class="card-title col-12">ログイン</h3>
 				<div class="card-body">
@@ -14,15 +15,15 @@
 					</div>
 					<form action="#" th:action="@{/login}" method="post"
 						class="d-flex flex-column justify-content-center align-items-center gap-3">
-						<div class="col-12 row justify-content-center align-items-center">
-							<label for="userId" class="col-3">ユーザID</label>
-							<input type="text" id="username" name="username" class="col-9"
-								required>
+						<div class="col-12">
+							<label for="username" class="form-label">ユーザID</label>
+							<input type="text" class="form-control" id="username"
+								name="username" required>
 						</div>
-						<div class="col-12 row justify-content-centeralign-items-center">
-							<label for="userPw" class="col-3">パスワード</label>
-							<input type="password" id="password" name="password"
-								class="col-9" required>
+						<div class="col-12">
+							<label for="password" class="form-label">パスワード</label>
+							<input type="password" class="form-control" id="password"
+								name="password" required>
 						</div>
 						<div class="col-12 row justify-content-center align-items-center">
 							<button type="submit" class="col-auto btn btn-primary">Login</button>
