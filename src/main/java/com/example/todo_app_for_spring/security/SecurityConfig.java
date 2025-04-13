@@ -15,10 +15,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
-	
+
 	/**
-	 * セキュリティフィルターチェーンの設定
-	 * Spring Securityのフィルターチェーンを構成するためのメソッド
+	 * セキュリティフィルターチェーンの設定 Spring Securityのフィルターチェーンを構成するためのメソッド
 	 * 
 	 * @param http
 	 * @return
@@ -26,46 +25,34 @@ public class SecurityConfig {
 	 */
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http
-			.csrf(csrf -> csrf.disable())
-			.authorizeHttpRequests(auth -> auth
-					.requestMatchers("/login","/css/common.css").permitAll()
-					.anyRequest().authenticated())
-			.formLogin(form -> form
-					.loginPage("/login")
-					.loginProcessingUrl("/login")
-					.defaultSuccessUrl("/todo", true)
-					.failureUrl("/login?error")
-					.permitAll())
-			.logout(logout -> logout
-					.logoutUrl("/logout")
-					.logoutSuccessUrl("/login?logout")
-					.permitAll());
+		http.csrf(csrf -> csrf.disable())
+				.authorizeHttpRequests(auth -> auth.requestMatchers("/login", "/register", "/css/common.css")
+						.permitAll().anyRequest().authenticated())
+				.formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login")
+						.defaultSuccessUrl("/todo", true).failureUrl("/login?error").permitAll())
+				.logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login?logout").permitAll());
 
 		return http.build();
 	}
-	
+
 	/**
-	 * 認証マネージャーの設定
-	 * Spring Securityの認証マネージャーを構成するためのメソッド
+	 * 認証マネージャーの設定 Spring Securityの認証マネージャーを構成するためのメソッド
 	 * 
 	 * @param userDetailsService
 	 * @param passwordEncoder
 	 * @return
 	 */
 	@Bean
-	AuthenticationManager authenticationManager(
-			UserDetailsService userDetailsService,
+	AuthenticationManager authenticationManager(UserDetailsService userDetailsService,
 			PasswordEncoder passwordEncoder) {
 		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
 		authenticationProvider.setUserDetailsService(userDetailsService);
 		authenticationProvider.setPasswordEncoder(passwordEncoder);
 		return new ProviderManager(authenticationProvider);
 	}
-	
+
 	/**
-	 * パスワードエンコーダーの設定
-	 * Spring Securityのパスワードエンコーダーを構成するためのメソッド
+	 * パスワードエンコーダーの設定 Spring Securityのパスワードエンコーダーを構成するためのメソッド
 	 * 
 	 * @return
 	 */
@@ -73,5 +60,5 @@ public class SecurityConfig {
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder(12);
 	}
-	
+
 }

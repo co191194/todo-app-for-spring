@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common :: head(title='Register')}"></head>
+<body>
+	<header th:replace="~{common :: header(isLoggedIn=false, userName='')}"></header>
+	<div class="container position-relative">
+		<div
+			class="position-absolute top-0 start-50 translate-middle-x mt-5 w-100 row justify-content-center">
+			<div class="card p-3 col-4 row">
+				<h3 class="card-title col-12">ユーザ登録</h3>
+				<div th:if="${errorMessage != null}" th:text="${errorMessage}"
+					class="text-center text-danger text-pre-wrap pt-3 error-message-container">
+				</div>
+				<div class="card-body">
+					<form action="#" th:action="@{/register}" method="post"
+						class="d-flex flex-column justify-content-center align-items-center gap-3" th:object="${registerForm}">
+						<div class="col-12">
+							<label for="userName" class="form-label">ユーザ名</label>
+							<input type="text" class="form-control" th:field="*{userName}" maxlength=20 required>
+						</div>
+						<div class="col-12">
+							<label for="userId" class="form-label">ユーザID</label>
+							<input type="text" class="form-control" th:field="*{userId}"
+								minlength=1 maxlength=20 required>
+						</div>
+						<div class="col-12">
+							<label for="userPw" class="form-label">パスワード</label>
+							<input type="password" class="form-control" th:field="*{userPw}"
+							 minlength=8 maxlength=32 required>
+						</div>
+						<div class="col-12 row justify-content-center align-items-center">
+							<div class="col-4"></div>
+							<div class="col-4 d-flex justify-content-center">
+								<button type="submit" class="btn btn-primary">登録</button>
+							</div>
+							<div class="col-4 d-flex justify-content-center">
+								<a th:href="@{/login}">ログインに戻る</a>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

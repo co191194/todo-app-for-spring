@@ -16,20 +16,27 @@
 					<form action="#" th:action="@{/login}" method="post"
 						class="d-flex flex-column justify-content-center align-items-center gap-3">
 						<div class="col-12">
-							<label for="username" class="form-label">ユーザID</label>
-							<input type="text" class="form-control" id="username"
+							<label for="userId" class="form-label">ユーザID</label>
+							<input type="text" class="form-control" id="userId"
 								name="username" required>
 						</div>
 						<div class="col-12">
-							<label for="password" class="form-label">パスワード</label>
-							<input type="password" class="form-control" id="password"
+							<label for="userPw" class="form-label">パスワード</label>
+							<input type="password" class="form-control" id="userPw"
 								name="password" required>
 						</div>
 						<div class="col-12 row justify-content-center align-items-center">
-							<button type="submit" class="col-auto btn btn-primary">Login</button>
+							<div class="col-4"></div>
+							<div class="col-4 d-flex justify-content-center">
+								<button type="submit" class="btn btn-primary">Login</button>
+							</div>
+							<div class="col-4 d-flex justify-content-center">
+							</div>
 						</div>
 					</form>
-
+					<div class="pt-4">
+						<a th:href="@{/register}">新規登録はこちらから</a>
+					</div>
 				</div>
 			</div>
 		</div>

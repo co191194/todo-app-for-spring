@@ -1,13 +1,24 @@
 @charset "UTF-8";
 
+/* body要素の設定 */
 body {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 14px;
-    color: #333;
-    width: 100vw;;
-    height: 100vh;;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 14px;
+	color: #333;
+	width: 100vw;;
+	height: 100vh;;
 }
 
+/* containerの拡張 */
 .container {
 	margin-top: 1rem;
+}
+
+/* bootstrapにないwhite-spaceを追加 */
+.text-pre-wrap {
+	white-space: pre-wrap;
+}
+
+.error-message-container {
+	height: 60px;
 }
