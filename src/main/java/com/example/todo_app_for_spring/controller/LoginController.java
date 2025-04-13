@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * ログイン画面のコントローラークラスです。<br>
+ */
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/login")

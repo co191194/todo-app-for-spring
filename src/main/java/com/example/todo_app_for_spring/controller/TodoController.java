@@ -21,12 +21,17 @@ import com.example.todo_app_for_spring.utility.LoginUserUtility;
 import lombok.RequiredArgsConstructor;
 
 /**
- * ToDo画面のコントローラーです。
+ * ToDo画面のコントローラーです。<br>
  */
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/todo")
 public class TodoController {
+
+	/**
+	 * ToDo画面のToDoIDを示すURLパス変数名
+	 */
+	private static final String TODO_ID = "todoId";
 
 	/**
 	 * モデルマッパー
@@ -73,7 +78,7 @@ public class TodoController {
 	 * @return
 	 */
 	@GetMapping("/delete/{todoId}")
-	public String delete(@PathVariable("todoId") Long todoId) {
+	public String delete(@PathVariable(TODO_ID) Long todoId) {
 		todoService.deleteToDo(todoId);
 		return "redirect:/todo";
 	}

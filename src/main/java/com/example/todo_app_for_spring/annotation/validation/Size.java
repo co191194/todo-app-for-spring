@@ -11,6 +11,11 @@ import com.example.todo_app_for_spring.validator.SizeValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
+/**
+ * サイズバリデーションアノテーションです。<br>
+ * 指定した最小値と最大値の範囲内に収まるかを検証します。<br>
+ * 指定したフィールド名とサイズをエラーメッセージに埋め込みます。
+ */
 @Target({ ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = { SizeValidator.class })

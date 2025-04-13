@@ -6,7 +6,8 @@ import com.example.todo_app_for_spring.dto.TodoDto;
 import com.example.todo_app_for_spring.entity.Todo;
 
 /**
- * ToDo画面のサービスインターフェース
+ * ToDo画面のServiceインターフェースです。<br>
+ * ToDo画面のControllerとService間でやり取りするメソッドを定義します。<br>
  */
 public interface TodoService {
 

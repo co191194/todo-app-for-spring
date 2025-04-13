@@ -6,14 +6,15 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.todo_app_for_spring.dto.RegisterDto;
 import com.example.todo_app_for_spring.entity.Account;
-import com.example.todo_app_for_spring.form.RegisterDto;
 import com.example.todo_app_for_spring.repository.AccountRepository;
 
 import lombok.RequiredArgsConstructor;
 
 /**
- * ユーザ登録画面のサービスクラスです。
+ * ユーザ登録画面のサービスクラスです。<br>
+ * ユーザ登録画面のビジネスロジックを実装します。<br>
  */
 @Service
 @RequiredArgsConstructor

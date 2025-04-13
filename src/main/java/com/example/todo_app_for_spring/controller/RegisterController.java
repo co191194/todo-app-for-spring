@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.todo_app_for_spring.form.RegisterDto;
+import com.example.todo_app_for_spring.dto.RegisterDto;
+import com.example.todo_app_for_spring.form.RegisterForm;
 import com.example.todo_app_for_spring.service.RegisterService;
 import com.example.todo_app_for_spring.validator.RegisterValidator;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * ユーザ登録画面のコントローラークラスです。<br>
+ */
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/register")
@@ -54,12 +58,12 @@ public class RegisterController {
 	@GetMapping
 	public String init(Model model) {
 		model.addAttribute("errorMessage", null);
-		model.addAttribute("registerForm", new RegisterDto());
+		model.addAttribute("registerForm", new RegisterForm());
 		return "register";
 	}
 
 	@PostMapping
-	public String register(Model model, @ModelAttribute @Validated RegisterDto registerForm, BindingResult br) {
+	public String register(Model model, @ModelAttribute @Validated RegisterForm registerForm, BindingResult br) {
 		if (br.hasErrors()) {
 			model.addAttribute("errorMessage", br.getAllErrors().get(0).getDefaultMessage());
 			model.addAttribute("registerForm", registerForm);

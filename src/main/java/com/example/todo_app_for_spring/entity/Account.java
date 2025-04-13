@@ -5,11 +5,13 @@ import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Version;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+/**
+ * アカウントテーブルのエンティティクラスです。<br>
+ * アカウントテーブルのカラムを定義します。<br>
+ */
+@Data
 @Entity(name = "account")
 public class Account {
 

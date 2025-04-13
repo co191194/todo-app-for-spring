@@ -5,6 +5,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.example.todo_app_for_spring.security.CustomUserDetails;
 
+/**
+ * ログインユーザの情報を取得するユーティリティクラスです。<br>
+ */
 public class LoginUserUtility {
 
 	/**

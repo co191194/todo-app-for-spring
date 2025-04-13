@@ -12,6 +12,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+/**
+ * Spring Securityの設定クラスです。<br>
+ * セキュリティフィルターチェーン、認証マネージャー、パスワードエンコーダーを定義します。
+ */
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {

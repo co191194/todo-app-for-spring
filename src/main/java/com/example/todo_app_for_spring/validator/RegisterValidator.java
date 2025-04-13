@@ -5,7 +5,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import com.example.todo_app_for_spring.constant.MessageId;
-import com.example.todo_app_for_spring.form.RegisterDto;
+import com.example.todo_app_for_spring.form.RegisterForm;
 import com.example.todo_app_for_spring.repository.AccountRepository;
 import com.example.todo_app_for_spring.utility.MessageUtility;
 
@@ -22,14 +22,14 @@ public class RegisterValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return RegisterDto.class.isAssignableFrom(clazz);
+		return RegisterForm.class.isAssignableFrom(clazz);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
 
 		// Formのキャスト
-		RegisterDto registerForm = RegisterDto.class.cast(target);
+		RegisterForm registerForm = RegisterForm.class.cast(target);
 
 		// ユーザIDの重複チェック
 		validateDuplicateUserId(registerForm, errors);
@@ -42,7 +42,7 @@ public class RegisterValidator implements Validator {
 	 * @param registerForm
 	 * @param errors
 	 */
-	private void validateDuplicateUserId(RegisterDto registerForm, Errors errors) {
+	private void validateDuplicateUserId(RegisterForm registerForm, Errors errors) {
 
 		// ユーザIDの重複チェック
 		if (accountRepository.existsByUserId(registerForm.getUserId())) {

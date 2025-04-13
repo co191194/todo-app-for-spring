@@ -3,6 +3,10 @@ package com.example.todo_app_for_spring.utility;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
+/**
+ * メッセージ取得ユーティリティクラスです。<br>
+ * メッセージプロパティファイルからメッセージを取得します。<br>
+ */
 @Component
 public class MessageUtility {
 

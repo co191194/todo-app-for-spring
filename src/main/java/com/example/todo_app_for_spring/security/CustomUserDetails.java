@@ -12,12 +12,21 @@ import com.example.todo_app_for_spring.entity.Account;
 
 import lombok.Data;
 
+/**
+ * Spring Securityで使用するユーザ情報を保持するクラスです。<br>
+ * UserDetailsインターフェースを実装しています。<br>
+ * 
+ * @see UserDetails
+ */
 @Data
 public class CustomUserDetails implements UserDetails {
 
 	private static final long serialVersionUID = -2040529305275897507L;
 
+	// ユーザ情報
 	private final Account user;
+	
+	// ユーザの権限
 	private static final List<GrantedAuthority> ROLE_USER = Collections
 			.unmodifiableList(AuthorityUtils.createAuthorityList("ROLE_USER"));
 

@@ -6,6 +6,10 @@ import org.springframework.security.core.session.ReactiveSessionRegistry;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+// TODO 実装中
+/**
+ * セッション情報を管理するクラスです。<br>
+ */
 public class TodoSessionRegistory implements ReactiveSessionRegistry {
 
 	@Override

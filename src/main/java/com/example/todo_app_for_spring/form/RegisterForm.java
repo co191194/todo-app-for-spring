@@ -7,9 +7,14 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
+
+/**
+ * ユーザ登録画面のFormクラスです。<br>
+ * ユーザ登録画面のControllerとView間でやり取りするデータを定義します。<br>
+ */
 @Getter
 @Setter
-public class RegisterDto {
+public class RegisterForm {
 
 	// ユーザID
 	@NotEmpty(message = "ユーザIDは必須です")

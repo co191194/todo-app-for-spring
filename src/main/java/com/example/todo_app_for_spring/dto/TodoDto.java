@@ -6,7 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * ToDo画面用のDTOです。
+ * ToDo画面のDTOです。<br>
+ * ToDo画面のControllerとService間でやり取りするデータを定義します。<br>
  */
 @Getter
 @Setter

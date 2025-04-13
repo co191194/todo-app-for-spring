@@ -7,6 +7,11 @@ import com.example.todo_app_for_spring.annotation.validation.Pattern;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
+/**
+ * 正規表現バリデーションの実装クラスです。<br>
+ * 指定した正規表現にマッチするかを検証します。<br>
+ * 指定したフィールド名とパターンをエラーメッセージに埋め込みます。<br>
+ */
 public class PatternValidator implements ConstraintValidator<Pattern, String> {
 
 	/**

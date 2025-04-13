@@ -7,6 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.todo_app_for_spring.entity.Todo;
 
+/**
+ * ToDo情報のリポジトリインターフェースです。<br>
+ * ToDoテーブルのCRUD操作を行います。<br>
+ */
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 
 	/**
