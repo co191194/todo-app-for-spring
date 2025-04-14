@@ -15,4 +15,5 @@ public class MessageId {
 	public static final String M0001E = "M0001E";
 	public static final String M0002E = "M0002E";
 	public static final String M0003E = "M0003E";
+	public static final String M0004E = "M0004E";
 }

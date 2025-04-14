@@ -19,4 +19,12 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
 	 * @return
 	 */
 	List<Todo> findByUserIdOrderByTodoDateAscTodoIdAsc(String userId);
+	
+	/**
+	 * ユーザIDからToDo件数を取得する
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	int countByUserId(String userId);
 }
