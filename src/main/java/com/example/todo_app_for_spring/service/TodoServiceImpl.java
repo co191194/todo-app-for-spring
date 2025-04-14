@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.todo_app_for_spring.dto.TodoDto;
@@ -34,8 +33,7 @@ public class TodoServiceImpl implements TodoService {
 
 	@Override
 	public List<Todo> getToDoList() {
-		return todoRepository.findByUserId(LoginUserUtility.getLoginUserId(),
-				Sort.by("todoDate").ascending().and(Sort.by("todoId").ascending()));
+		return todoRepository.findByUserIdOrderByTodoDateAscTodoIdAsc(LoginUserUtility.getLoginUserId());
 	}
 
 	@Override
