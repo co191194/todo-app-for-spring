@@ -1,6 +1,6 @@
 package com.example.todo_app_for_spring.form;
 
-import com.example.todo_app_for_spring.annotation.validation.Pattern;
+import com.example.todo_app_for_spring.annotation.validation.Password;
 import com.example.todo_app_for_spring.annotation.validation.Size;
 
 import jakarta.validation.constraints.NotEmpty;
@@ -27,6 +27,6 @@ public class RegisterForm {
 	// パスワード
 	@NotEmpty(message = "パスワードは必須です")
 	@Size(name = "パスワード", min = 8, max = 32)
-	@Pattern(name = "パスワード", regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", pattern = "大小半角英数字記号を3種類以上")
+	@Password
 	private String userPw;
 }
